@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ConfettiView_Demo__tvOS_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-NC-vhj">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zd5-eA-R3s">
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43z-4i-laG" customClass="ConfettiView" customModule="ConfettiView">
+                                            <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <gestureRecognizers/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Select or Play/Pause!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csJ-tS-UYd">
+                                            <rect key="frame" x="728" y="517" width="464" height="46"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="43z-4i-laG" secondAttribute="bottom" id="8yv-PA-6Wr"/>
+                                        <constraint firstItem="csJ-tS-UYd" firstAttribute="centerY" secondItem="zd5-eA-R3s" secondAttribute="centerY" id="JUG-la-o1S"/>
+                                        <constraint firstAttribute="trailing" secondItem="43z-4i-laG" secondAttribute="trailing" id="UHa-Y3-Odk"/>
+                                        <constraint firstItem="csJ-tS-UYd" firstAttribute="centerX" secondItem="zd5-eA-R3s" secondAttribute="centerX" id="VpY-vK-Mub"/>
+                                        <constraint firstItem="43z-4i-laG" firstAttribute="leading" secondItem="zd5-eA-R3s" secondAttribute="leading" id="vrj-ij-UGJ"/>
+                                        <constraint firstItem="43z-4i-laG" firstAttribute="top" secondItem="zd5-eA-R3s" secondAttribute="top" id="zQL-d1-PMa"/>
+                                    </constraints>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="regular"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vS5-NC-vhj" secondAttribute="trailing" id="APR-70-CuS"/>
+                            <constraint firstAttribute="bottom" secondItem="vS5-NC-vhj" secondAttribute="bottom" id="GXE-Iw-Mjh"/>
+                            <constraint firstItem="vS5-NC-vhj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Rcr-ah-vVi"/>
+                            <constraint firstItem="vS5-NC-vhj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fAg-TU-2uv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wu6-TO-1qx"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="adk-dN-leU" appends="YES" id="Qwb-QK-XaZ"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="confettiView" destination="43z-4i-laG" id="EH4-ts-Gux"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="adk-dN-leU">
+                    <pressTypeMask key="allowedPressTypes" select="YES" playPause="YES"/>
+                    <connections>
+                        <action selector="tapGestureAction:" destination="BYZ-38-t0r" id="942-mD-DBB"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+        </scene>
+    </scenes>
+</document>
