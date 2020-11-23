@@ -8,26 +8,26 @@
 
 #if canImport(AppKit)
 import AppKit
+
+public typealias View = NSView
+public typealias Color = NSColor
+public typealias Image = NSImage
 #else
 import UIKit
+
+public typealias View = UIView
+public typealias Color = UIColor
+public typealias Image = UIImage
 #endif
 
-open class ConfettiView: ConfettiView.View {
+open class ConfettiView: View {
 
     #if canImport(AppKit)
-    public typealias View = NSView
-    public typealias Color = NSColor
-    public typealias Image = NSImage
-
     let frameworkConstant: CGFloat = 1
     var yOrigin: CGFloat {
         return frame.size.height + heightOffset
     }
     #else
-    public typealias View = UIView
-    public typealias Color = UIColor
-    public typealias Image = UIImage
-
     let frameworkConstant: CGFloat = -1
     var yOrigin: CGFloat {
         return -heightOffset
@@ -123,7 +123,7 @@ open class ConfettiView: ConfettiView.View {
         isActive = true
 
         let emitter = CAEmitterLayer()
-        emitter.emitterShape = kCAEmitterLayerLine
+        emitter.emitterShape = CAEmitterLayerEmitterShape.line
         setSizeAndPosition(for: emitter)
         emitter.emitterCells = confettiCells(for: colors)
         emitterQueue.append(emitter)
@@ -200,14 +200,14 @@ open class ConfettiView: ConfettiView.View {
 }
 
 #if canImport(AppKit)
-extension ConfettiView.Image {
+extension Image {
     var cgImage: CGImage? {
         return self.cgImage(forProposedRect: nil, context: nil, hints: nil)
     }
 }
 #endif
 
-extension ConfettiView.View {
+extension View {
     var caLayer: CALayer {
         #if canImport(AppKit)
             if !wantsLayer {
